@@ -16,4 +16,4 @@ pipelines:
           - git status
           - git commit -m "Contentful Backup commited"
           - git push --set-upstream origin $currentBranch
-          - echo "Weekly Contentful Backup Completed.."
+          - echo "Contentful Backup Completed.."
