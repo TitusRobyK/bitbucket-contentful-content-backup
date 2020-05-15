@@ -1,2 +1,2 @@
-# bitbucket-contentful-content-backup
-Bitbucket Pipeline script to take regular backup of Contentful content by leveraging bitbucket pipeline
+# Bitbucket pipeline script to export contentful content entries
+This is a generic Bitbucket Custom Pipeline script to export contentful content entries and commit the same in a particular branch.
