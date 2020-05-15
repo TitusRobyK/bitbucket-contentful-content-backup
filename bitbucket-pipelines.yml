@@ -1,0 +1,19 @@
+image: node:10.15.3
+
+pipelines:
+  custom:
+    Perform-Contentful-Backup:
+    - step:
+        caches:
+          - node
+        script: 
+          - npm install -g contentful-cli
+          - git status
+          - currentBranch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+          - contentful space export --space-id $Contentful_Space_Id --environment-id master --management-Token $Contentful_CMA_Token  --exportDir contentful_content-backup
+          - git status
+          - git add --all
+          - git status
+          - git commit -m "Contentful Backup commited"
+          - git push --set-upstream origin $currentBranch
+          - echo "Weekly Contentful Backup Completed.."
